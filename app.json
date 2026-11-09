@@ -1,25 +1,52 @@
 {
   "expo": {
-    "name": "outfit-matcher",
-    "slug": "outfit-matcher",
+    "name": "WTF",
+    "slug": "what-the-fit",
+    "scheme": "whatthefit",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Allow WTF to access your photos to add clothing items.",
+        "NSCameraUsageDescription": "Allow WTF to use your camera to photograph clothing items."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#F9F7F4"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.hjarong.whatthefit"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow WTF to access your photos to add clothing items.",
+          "cameraPermission": "Allow WTF to use your camera to photograph clothing items."
+        }
+      ],
+      "expo-sqlite"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "c27e80fa-1ed8-450f-90df-bd7aa2e6e588"
+      }
     }
   }
 }
